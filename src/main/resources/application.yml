@@ -1,0 +1,12 @@
+server:
+  port: 8010
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+spring:
+  datasource:
+    name: recommend
+    url: jdbc:mysql://127.0.0.1:3306/recommend?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 10142556
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver

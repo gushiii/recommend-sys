@@ -1,5 +1,9 @@
 package com.gushiii.recommend.controller;
 
+import com.gushiii.recommend.common.BusinessException;
+import com.gushiii.recommend.common.CommonError;
+import com.gushiii.recommend.common.CommonRes;
+import com.gushiii.recommend.common.EmBusinessError;
 import com.gushiii.recommend.model.UserModel;
 import com.gushiii.recommend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,12 @@ public class UserController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public UserModel getUser(@RequestParam(name = "id") Integer id) {
-        return userService.getUser(id);
+    public CommonRes getUser(@RequestParam(name = "id") Integer id) throws BusinessException {
+        UserModel userModel = userService.getUser(id);
+        if (userModel == null) {
+            throw new BusinessException(EmBusinessError.NO_OBJECT_FOUND);
+        } else {
+            return CommonRes.create(userModel);
+        }
     }
 }

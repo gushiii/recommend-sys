@@ -214,7 +214,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 success : function(data){
                     if(data.status == 'success'){
                         alert("启用商户成功");
-                        window.location.href = "/admin/seller/index";
+                        window.location.href = "/admin/seller/index?page=" + currentPage;
                     }else{
                         alert("启用商户失败，原因为"+data.data.errMsg);
                     }
@@ -243,7 +243,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 success : function(data){
                     if(data.status == 'success'){
                         alert("禁用商户成功");
-                        window.location.href = "/admin/seller/index";
+                        window.location.href = "/admin/seller/index?page=" + currentPage;
                     }else{
                         alert("禁用商户失败，原因为"+data.data.errMsg);
                     }

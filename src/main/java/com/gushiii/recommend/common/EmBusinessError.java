@@ -20,6 +20,9 @@ public enum EmBusinessError {
     /////////////////////////////////
     REGISTER_DUP_FAIL(20001,"用户已存在"),
     LOGIN_FAIL(20002, "手机号或密码错误"),
+
+    /////////////////////////////////
+    ADMIN_SHOULD_LOGIN(30001, "需要先登录"),
     ;
 
 

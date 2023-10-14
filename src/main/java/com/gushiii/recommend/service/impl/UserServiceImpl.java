@@ -57,9 +57,6 @@ public class UserServiceImpl implements UserService {
         if (userModel == null) {
             throw new BusinessException(EmBusinessError.LOGIN_FAIL);
         }
-        System.out.println("====================================");
-        System.out.println(userModel.toString());
-        System.out.println("====================================");
         return userModel;
     }
 

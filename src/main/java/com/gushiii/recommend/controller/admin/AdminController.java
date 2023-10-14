@@ -3,6 +3,9 @@ package com.gushiii.recommend.controller.admin;
 import com.gushiii.recommend.common.AdminPermission;
 import com.gushiii.recommend.common.BusinessException;
 import com.gushiii.recommend.common.EmBusinessError;
+import com.gushiii.recommend.service.CategoryService;
+import com.gushiii.recommend.service.SellerService;
+import com.gushiii.recommend.service.ShopService;
 import com.gushiii.recommend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,6 +47,13 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CategoryService categoryService;
+    @Autowired
+    private SellerService sellerService;
+    @Autowired
+    private ShopService shopService;
+
     public static final String CURRENT_ADMIN_SESSION = "currentAdminSession";
 
     @AdminPermission
@@ -53,6 +63,9 @@ public class AdminController {
         modelAndView.addObject("CONTROLLER_NAME", "admin");
         modelAndView.addObject("ACTION_NAME", "index");
         modelAndView.addObject("userCount", userService.countAllUser());
+        modelAndView.addObject("sellerCount", sellerService.countAllSeller());
+        modelAndView.addObject("categoryCount", categoryService.countAllCategory());
+        modelAndView.addObject("shopCount", shopService.countAllShop());
         return modelAndView;
     }
 

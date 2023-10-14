@@ -3,6 +3,7 @@ package com.gushiii.recommend.controller.admin;
 import com.gushiii.recommend.common.AdminPermission;
 import com.gushiii.recommend.common.BusinessException;
 import com.gushiii.recommend.common.EmBusinessError;
+import com.gushiii.recommend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -40,12 +41,18 @@ public class AdminController {
     @Autowired
     private HttpServletRequest httpServletRequest;
 
+    @Autowired
+    private UserService userService;
+
     public static final String CURRENT_ADMIN_SESSION = "currentAdminSession";
 
     @AdminPermission
     @RequestMapping("/index")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("/admin/admin/index");
+        modelAndView.addObject("CONTROLLER_NAME", "admin");
+        modelAndView.addObject("ACTION_NAME", "index");
+        modelAndView.addObject("userCount", userService.countAllUser());
         return modelAndView;
     }
 

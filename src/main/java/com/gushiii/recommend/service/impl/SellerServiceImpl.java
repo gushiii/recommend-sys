@@ -32,7 +32,7 @@ public class SellerServiceImpl implements SellerService {
     @Transactional
     public SellerModel create(SellerModel sellerModel) {
         sellerModel.setCreateAt(new Date());
-        sellerModel.setUpdataAt(new Date());
+        sellerModel.setUpdateAt(new Date());
         sellerModel.setRemarkScore(new BigDecimal(0));
         sellerModel.setDisabledFlag(0);
         sellerModelMapper.insertSelective(sellerModel);

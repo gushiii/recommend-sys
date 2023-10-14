@@ -12,7 +12,7 @@ package com.gushiii.recommend.request;
 public class PageQuery {
 
     private Integer page = 1;
-    private Integer size = 1;
+    private Integer size = 20;
 
     public Integer getPage() {
         return page;

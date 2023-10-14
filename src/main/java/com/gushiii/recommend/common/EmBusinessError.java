@@ -23,6 +23,9 @@ public enum EmBusinessError {
 
     /////////////////////////////////
     ADMIN_SHOULD_LOGIN(30001, "需要先登录"),
+
+    /////////////////////////////////
+    CATEGORY_NAME_DUPLICATED(40001, "品类名称已存在"),
     ;
 
 

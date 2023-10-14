@@ -52,7 +52,7 @@ public class UserController {
     @RequestMapping("/index")
     public ModelAndView index () {
         String userName = "gushiii";
-        ModelAndView modelAndView = new ModelAndView("/index.html");
+        ModelAndView modelAndView = new ModelAndView("index.html");
         modelAndView.addObject("name", userName);
         return modelAndView;
     }

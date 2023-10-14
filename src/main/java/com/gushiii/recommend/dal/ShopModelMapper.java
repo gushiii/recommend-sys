@@ -1,7 +1,9 @@
 package com.gushiii.recommend.dal;
 
 import com.gushiii.recommend.model.ShopModel;
+import org.apache.ibatis.annotations.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ShopModelMapper {
@@ -56,4 +58,6 @@ public interface ShopModelMapper {
     List<ShopModel> selectAll();
 
     Integer countAllShop();
+
+    List<ShopModel> recommend(@Param("longitude") BigDecimal longitude, @Param("latitude") BigDecimal latitude);
 }

@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : GUSHIII
@@ -97,5 +98,20 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public Integer countAllShop() {
         return shopModelMapper.countAllShop();
+    }
+
+    @Override
+    public List<ShopModel> search(BigDecimal longitude, BigDecimal latitude, String keyword, Integer orderby, Integer categoryId, String tags) {
+        List<ShopModel> shopModels = shopModelMapper.search(longitude, latitude, keyword, orderby, categoryId, tags);
+        shopModels.forEach(shopModel -> {
+            shopModel.setSellerModel(sellerService.get(shopModel.getSellerId()));
+            shopModel.setCategoryModel(categoryService.get(shopModel.getCategoryId()));
+        });
+        return shopModels;
+    }
+
+    @Override
+    public List<Map<String, Object>> searchGroupByTags(String keyword, Integer categoryId, String tag) {
+        return shopModelMapper.searchGroupByTags(keyword, categoryId, tag);
     }
 }

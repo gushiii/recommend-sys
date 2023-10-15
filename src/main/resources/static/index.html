@@ -222,13 +222,13 @@
             </div>
         </div>
 
-        <div class="guesstitle" id="guess">猜你喜欢<img src="/static/image/home_competitive_icon.png" alt=""></div>
+        <div class="guesstitle" id="guess" style="text-align: center">猜你喜欢<img src="/static/image/home_competitive_icon.png" alt=""></div>
         <div class="home-tuan-list" id="tuanList">
 
         </div>
 
         <div class="guesstitle" id="searchTitle" style="font-size:14px;">
-            <p id="resTitle" >搜索结果</p>
+            <p id="resTitle" style="margin-top: 10px;text-align: center;color: #b9b9b9" >展开</p>
             <div id="extraPadding" style="display:none;">
                 <p>分类过滤</p>
                 <div id="categoryFilter" style="margin-bottom:10px;"></div>
@@ -246,7 +246,7 @@
     <div id="footer">
         <ul>
             <li tapmode="activebtn0 activebtn">
-                <a class="bottom_btn bbtn01 weixin activebtn activebtn0" href="/index.html">首页</a>
+                <a class="bottom_btn bbtn01 weixin activebtn activebtn0" href="/static/index.html">首页</a>
             </li>
 
             <li tapmode="activebtn1 activebtn">
@@ -558,6 +558,11 @@
         });
 
         $("#resTitle").on("click",function(){
+            if ($("#resTitle").text() == "展开") {
+                $("#resTitle").text("收起")
+            } else {
+                $("#resTitle").text("展开")
+            }
             $("#extraPadding").toggle(500);
         });
 
